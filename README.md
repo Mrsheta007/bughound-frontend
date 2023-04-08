@@ -3,7 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+##build the module
 
+###`npm install --legacy-peer-deps`
 In the project directory, you can run:
 
 ### `npm start`
