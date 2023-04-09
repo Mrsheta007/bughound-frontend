@@ -10,7 +10,7 @@ const AddEmployee = () => {
     e.preventDefault();
     const employeeData = { name, username, password, userLevel };
     console.log();
-    fetch("http://localhost:3000/addemployee", {
+    fetch("https://bughound-backend.vercel.app/addemployee", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(employeeData),
