@@ -24,13 +24,15 @@ function Editemployees() {
   const [newEmployee, setNewEmployee] = useState("");
   const employee_id = searchParams.get("employee_id");
 
-  useEffect(() => {
-    axios
-      .get(`https://bughound-backend.vercel.app/getemployee/${employee_id}`)
-      .then((res) => {
-        setEmployees(res.data);
-      });
-  }, [employee_id]);
+  console.log("this is update employee page ");
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://bughound-backend.vercel.app/getemployee/${employee_id}`)
+  //     .then((res) => {
+  //       setEmployees(res.data);
+  //     });
+  // }, [employee_id]);
 
   const handleUpdateEmployeeName = (id, name) => {
     const updatedEmployees = employees.map((employees) =>
