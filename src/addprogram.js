@@ -11,7 +11,7 @@ const AddProgram = () => {
 
   useEffect(() => {
     //Retrieve the list of programs from the database
-    axios.get("http://localhost:3000/getprograms").then((res) => {
+    axios.get("https://bughound-backend.vercel.app/getprograms").then((res) => {
       setPrograms(res.data);
     });
   }, []);
@@ -21,7 +21,11 @@ const AddProgram = () => {
 
     // Send the form data to the backend
     axios
-      .post("http://localhost:3000/addprograms", { name, version, rel })
+      .post("https://bughound-backend.vercel.app/addprograms", {
+        name,
+        version,
+        rel,
+      })
       .then(() => {
         window.location.reload();
         // Reload the page to show the updated list of programs

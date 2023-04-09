@@ -10,7 +10,7 @@ const ExportForm = () => {
       return;
     }
     axios
-      .get(`http://localhost:3000/export/${tableName}`)
+      .get(`https://bughound-backend.vercel.app/export/${tableName}`)
       .then((res) => {
         const blob = new Blob([res.data], { type: "text/csv" });
         const url = window.URL.createObjectURL(blob);

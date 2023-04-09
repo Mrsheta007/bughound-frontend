@@ -33,7 +33,7 @@ function AddBug() {
 
   useEffect(() => {
     //Retrieve the list of programs from the database
-    axios.get("http://localhost:3000/getprograms").then((res) => {
+    axios.get("https://bughound-backend.vercel.app/getprograms").then((res) => {
       //console.log("this is the output:-------->>>", res.data);
       setPrograms(res.data);
     });
@@ -42,7 +42,9 @@ function AddBug() {
   useEffect(() => {
     if (formValues.program) {
       axios
-        .get(`http://localhost:3000/getareas/${formValues.program}`)
+        .get(
+          `https://bughound-backend.vercel.app/getareas/${formValues.program}`
+        )
         .then((res) => {
           //console.log("this is the output:-------->>>", res.data);
           setAreas(res.data);
@@ -54,10 +56,12 @@ function AddBug() {
 
   useEffect(() => {
     //Retrieve the list of programs from the database
-    axios.get("http://localhost:3000/getemployees").then((res) => {
-      //console.log("this is the output:-------->>>", res.data);
-      setEmployees(res.data);
-    });
+    axios
+      .get("https://bughound-backend.vercel.app/getemployees")
+      .then((res) => {
+        //console.log("this is the output:-------->>>", res.data);
+        setEmployees(res.data);
+      });
   }, []);
 
   const handleInputChange = (event) => {
@@ -74,7 +78,7 @@ function AddBug() {
     // TODO: submit form data to MySQL database
 
     axios
-      .post("http://localhost:3000/addbug", formValues)
+      .post("https://bughound-backend.vercel.app/addbug", formValues)
       .then((res) => {
         console.log("This data is Added:", formValues);
         // TODO: show success message to user

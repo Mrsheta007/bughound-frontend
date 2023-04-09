@@ -6,7 +6,7 @@ const Addareas = () => {
   const [programs, setPrograms] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/getprograms").then((res) => {
+    axios.get("https://bughound-backend.vercel.app/getprograms").then((res) => {
       setPrograms(res.data);
     });
   }, []);

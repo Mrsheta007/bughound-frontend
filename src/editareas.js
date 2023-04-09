@@ -23,14 +23,16 @@ function Editareas() {
   const programId = searchParams.get("program_id");
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/getareas/${programId}`).then((res) => {
-      setAreas(res.data);
-    });
+    axios
+      .get(`https://bughound-backend.vercel.app/getareas/${programId}`)
+      .then((res) => {
+        setAreas(res.data);
+      });
   }, [programId]);
 
   const handleAddArea = () => {
     axios
-      .post("http://localhost:3000/addarea", {
+      .post("https://bughound-backend.vercel.app/addarea", {
         programId: programId,
         area: newArea,
       })
@@ -50,7 +52,9 @@ function Editareas() {
 
   const handleUpdateArea = (area_id, area_name) => {
     axios
-      .put(`http://localhost:3000/updatearea/${area_id}`, { area_name })
+      .put(`https://bughound-backend.vercel.app/updatearea/${area_id}`, {
+        area_name,
+      })
       .then(() => {
         const updatedAreas = areas.map((area) =>
           area.area_id === area_id ? { ...area, area_name } : area

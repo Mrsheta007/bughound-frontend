@@ -16,7 +16,7 @@ const BugList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/searchresult")
+      .get("https://bughound-backend.vercel.app/searchresult")
       .then((response) => {
         setBugs(response.data);
       })

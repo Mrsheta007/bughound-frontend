@@ -33,88 +33,96 @@ function Editbug() {
 
   useEffect(() => {
     //Retrieve the list of programs from the database
-    axios.get("http://localhost:3000/getemployees").then((res) => {
-      //console.log("this is the output:-------->>>", res.data);
-      setEmployees(res.data);
-    });
+    axios
+      .get("https://bughound-backend.vercel.app/getemployees")
+      .then((res) => {
+        //console.log("this is the output:-------->>>", res.data);
+        setEmployees(res.data);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/getbug/${bugid}`).then((res) => {
-      ///setFormData(res.data[0]);
+    axios
+      .get(`https://bughound-backend.vercel.app/getbug/${bugid}`)
+      .then((res) => {
+        ///setFormData(res.data[0]);
 
-      const withoutdate = new Date(res.data[0].date);
-      const date = withoutdate.toISOString().slice(0, 10);
+        const withoutdate = new Date(res.data[0].date);
+        const date = withoutdate.toISOString().slice(0, 10);
 
-      const withoutresdate = new Date(res.data[0].date);
-      const resdate = withoutresdate.toISOString().slice(0, 10);
+        const withoutresdate = new Date(res.data[0].date);
+        const resdate = withoutresdate.toISOString().slice(0, 10);
 
-      const {
-        report_type,
-        reported_by,
+        const {
+          report_type,
+          reported_by,
 
-        problem_summary,
-        severity,
-        problem,
-        area,
-        comments,
-        status,
-        priority,
-        resolution,
-        resolution_version,
-        treat_as,
-        resolved_by,
+          problem_summary,
+          severity,
+          problem,
+          area,
+          comments,
+          status,
+          priority,
+          resolution,
+          resolution_version,
+          treat_as,
+          resolved_by,
 
-        tested_by,
-      } = res.data[0];
-      setFormData({
-        report_type,
-        reported_by,
-        date,
-        problem_summary,
-        severity,
-        problem,
-        area,
-        comments,
-        status,
-        priority,
-        resolution,
-        resolution_version,
-        treat_as,
-        resolved_by,
-        resdate,
-        tested_by,
+          tested_by,
+        } = res.data[0];
+        setFormData({
+          report_type,
+          reported_by,
+          date,
+          problem_summary,
+          severity,
+          problem,
+          area,
+          comments,
+          status,
+          priority,
+          resolution,
+          resolution_version,
+          treat_as,
+          resolved_by,
+          resdate,
+          tested_by,
+        });
+        //setFormData({ reported_by: res.data[0].reported_by });
+        //setFormData({ date: res.data[0].date });
       });
-      //setFormData({ reported_by: res.data[0].reported_by });
-      //setFormData({ date: res.data[0].date });
-    });
   }, [bugid]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/getoneprogram/${bugid}`).then((res) => {
-      setprogramname(res.data[0].name);
-      setprogramid(res.data[0].id);
-      //console.log("working on this:------------------:", res.data[0]);
+    axios
+      .get(`https://bughound-backend.vercel.app/getoneprogram/${bugid}`)
+      .then((res) => {
+        setprogramname(res.data[0].name);
+        setprogramid(res.data[0].id);
+        //console.log("working on this:------------------:", res.data[0]);
 
-      //console.log("##########################", res.data[0].name);
+        //console.log("##########################", res.data[0].name);
 
-      //setFormData({ problem_summary: res.data[0].problem_summary }, {});
-      //setFormData({ reported_by: res.data[0].reported_by });
-      //setFormData({ date: res.data[0].date });
-    });
+        //setFormData({ problem_summary: res.data[0].problem_summary }, {});
+        //setFormData({ reported_by: res.data[0].reported_by });
+        //setFormData({ date: res.data[0].date });
+      });
   }, [bugid]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/getareas/${program_id}`).then((res) => {
-      setAreas(res.data);
-    });
+    axios
+      .get(`https://bughound-backend.vercel.app/getareas/${program_id}`)
+      .then((res) => {
+        setAreas(res.data);
+      });
   }, [program_id]);
 
   useEffect(() => {
     const fetchFile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/getfiles/${bugid}`
+          `https://bughound-backend.vercel.app/api/getfiles/${bugid}`
         );
         if (response.data.length > 0) {
           setFile(response.data[0]);
@@ -166,7 +174,7 @@ function Editbug() {
       formData.date = formattedDate;
     }
     axios
-      .put(`http://localhost:3000/editbug/${bugid}`, formData)
+      .put(`https://bughound-backend.vercel.app/editbug/${bugid}`, formData)
       .then((res) => {
         console.log(res.data);
         // TODO: show success message to user
@@ -181,7 +189,7 @@ function Editbug() {
     formDatas.append("file", file);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/upload",
+        "https://bughound-backend.vercel.app/api/upload",
         formDatas
       );
       console.log(response.data);
@@ -194,7 +202,7 @@ function Editbug() {
   const handleDownload = async (bugid) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/filesdownload/${bugid}`,
+        `https://bughound-backend.vercel.app/api/filesdownload/${bugid}`,
         {
           responseType: "blob",
         }
