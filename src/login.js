@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("bughound-frontend.vercel.app/login", { username, password })
+      .post("http://localhost:3000/login", { username, password })
       .then((response) => {
         // Login successful, redirect to bughoundstartpage with employee name and userlevel.
 
