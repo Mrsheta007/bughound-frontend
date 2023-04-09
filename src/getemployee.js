@@ -15,11 +15,10 @@ const Getemployees = () => {
   const [employees, setemployees] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://bughound-backend.vercel.app/getemployees")
-      .then((res) => {
-        setemployees(res.data);
-      });
+    axios.get("http://localhost:3000/getemployees").then((res) => {
+      console.log("this is the received data from get employee:", res);
+      setemployees(res.data);
+    });
   }, []);
 
   return (
