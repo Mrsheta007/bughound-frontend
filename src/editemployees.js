@@ -48,10 +48,13 @@ function Editemployees() {
 
   const handleUpdateEmployee = (id, name, user_level) => {
     axios
-      .put(`https://bughound-backend.vercel.app/updateemployee/${id}`, {
-        name,
-        user_level,
-      })
+      .put(
+        `https://bughound-backend.vercel.app/updateemployee/${employee_id}`,
+        {
+          name,
+          user_level,
+        }
+      )
       .then(() => {
         const updatedEmployees = employees.map((employees) =>
           employees.id === id ? { ...employees, name, user_level } : employees
