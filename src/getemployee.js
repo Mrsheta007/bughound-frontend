@@ -18,7 +18,7 @@ const Getemployees = () => {
     axios
       .get("https://bughound-backend.vercel.app/getemployees")
       .then((res) => {
-        console.log("this is the received data from get employee:", res);
+        console.log("this is the received data from getemployees:", res);
         setemployees(res.data);
       });
   }, []);

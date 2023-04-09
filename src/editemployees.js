@@ -26,13 +26,13 @@ function Editemployees() {
 
   console.log("this is update employee page ");
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://bughound-backend.vercel.app/getemployee/${employee_id}`)
-  //     .then((res) => {
-  //       setEmployees(res.data);
-  //     });
-  // }, [employee_id]);
+  useEffect(() => {
+    axios
+      .get(`https://bughound-backend.vercel.app/getemployee/${employee_id}`)
+      .then((res) => {
+        setEmployees(res.data);
+      });
+  }, [employee_id]);
 
   const handleUpdateEmployeeName = (id, name) => {
     const updatedEmployees = employees.map((employees) =>
