@@ -43,7 +43,7 @@ const Getemployees = () => {
               <td>{employees.user_level}</td>
               <td>
                 <Link
-                  to={`https://bughound-backend.vercel.app/updateemployee?employee_id=${employees.id}`}
+                  to={`bughound-frontend.vercel.app/updateemployee?employee_id=${employees.id}`}
                 >
                   Edit
                 </Link>
