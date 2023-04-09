@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/searchresult" element={<Searchresult />} />
         <Route path="/export-areas" element={<Exports />} />
         <Route path="/getemployees" element={<Employees />} />
-        <Route path="/editemployee/*" element={<Editemployee />} />
+        <Route path="/updateemployee/*" element={<Editemployee />} />
 
         {/* Define other routes for edit/add areas, add programs, etc. */}
       </Routes>
