@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 
 function Searchingbug() {
   const [program, setprogram] = useState([]);
@@ -255,44 +264,40 @@ function Searchingbug() {
 
       <div></div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-
-            <th>Report Type</th>
-            <th>Severity</th>
-            <th>Problem</th>
-            <th>Problem Summary</th>
-
-            <th>Comments</th>
-            <th>Status</th>
-            <th>Priority</th>
-            <th>Resolution</th>
-
-            <th>Treat As</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bugs.map((bug) => (
-            <tr key={bug.id}>
-              <td>{bug.id}</td>
-
-              <td>{bug.report_type}</td>
-              <td>{bug.severity}</td>
-              <td>{bug.problem}</td>
-              <td>{bug.problem_summary}</td>
-
-              <td>{bug.comments}</td>
-              <td>{bug.status}</td>
-              <td>{bug.priority}</td>
-              <td>{bug.resolution}</td>
-
-              <td>{bug.treat_as}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Report Type</TableCell>
+              <TableCell>Severity</TableCell>
+              <TableCell>Problem</TableCell>
+              <TableCell>Problem Summary</TableCell>
+              <TableCell>Comments</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Priority</TableCell>
+              <TableCell>Resolution</TableCell>
+              <TableCell>Treat As</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {bugs.map((bug) => (
+              <TableRow key={bug.id}>
+                <TableCell>{bug.id}</TableCell>
+                <TableCell>{bug.report_type}</TableCell>
+                <TableCell>{bug.severity}</TableCell>
+                <TableCell>{bug.problem}</TableCell>
+                <TableCell>{bug.problem_summary}</TableCell>
+                <TableCell>{bug.comments}</TableCell>
+                <TableCell>{bug.status}</TableCell>
+                <TableCell>{bug.priority}</TableCell>
+                <TableCell>{bug.resolution}</TableCell>
+                <TableCell>{bug.treat_as}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </form>
   );
 }
