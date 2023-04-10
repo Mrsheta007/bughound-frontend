@@ -37,10 +37,11 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <h5>login </h5>
+      <h5>username:admin password:admin</h5>
+      <br />
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:admin password:admin</label>
+          <label>Username:</label>
           <input type="text" value={username} onChange={handleUsernameChange} />
         </div>
         <div>
