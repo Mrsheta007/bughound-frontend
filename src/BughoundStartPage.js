@@ -23,6 +23,9 @@ function App() {
               <a href="/database-maintenance">Database Maintenance</a>
             </li>
           )}
+          <li>
+            <a href="/searchbug">search bug</a>
+          </li>
         </ul>
       </nav>
     </div>
