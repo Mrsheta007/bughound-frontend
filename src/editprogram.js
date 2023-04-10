@@ -28,7 +28,7 @@ function Editprogram() {
 
   useEffect(() => {
     axios
-      .get(`https://bughound-backend.vercel.app/getoneprogram/${program_id}`)
+      .get(`https://bughound-backend.vercel.app/getsingleprogram/${program_id}`)
       .then((res) => {
         console.log("this is we got the program:", res.data);
         setprogram(res.data);
