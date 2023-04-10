@@ -15,7 +15,7 @@ const DatabaseMaintenance = () => {
           <a href="/addprograms">Add Programs</a>
         </li>
         <li>
-          <a href="/edit-programs">Edit Programs</a>
+          <a href="/getprogram">Edit Programs</a>
         </li>
         <li>
           <a href="/addemployee">Add Employees</a>

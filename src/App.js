@@ -16,6 +16,8 @@ import Exports from "./exportdata";
 import Employees from "./getemployee";
 import Editemployee from "./editemployees";
 import Searchbug from "./searchbug";
+import Getprogram from "./getprograms";
+import Editprogram from "./editprogram";
 const App = () => {
   return (
     <Router>
@@ -35,6 +37,8 @@ const App = () => {
         <Route path="/getemployees" element={<Employees />} />
         <Route path="/updateemployee/*" element={<Editemployee />} />
         <Route path="/searchbug" element={<Searchbug />} />
+        <Route path="/getprogram" element={<Getprogram />} />
+        <Route path="/updateprogram/*" element={<Editprogram />} />
 
         {/* Define other routes for edit/add areas, add programs, etc. */}
       </Routes>
