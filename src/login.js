@@ -37,7 +37,9 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <h5>username:admin password:admin</h5>
+      <h5>
+        username:admin <br></br>password:admin
+      </h5>
       <br />
       <form onSubmit={handleSubmit}>
         <div>
