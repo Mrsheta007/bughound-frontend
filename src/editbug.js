@@ -71,6 +71,10 @@ function Editbug() {
 
           tested_by,
         } = res.data[0];
+
+        //console.log("what is res.data[0]", res.data[0]);
+
+        //console.log("what is res.data", res.data);
         setFormData({
           report_type,
           reported_by,
@@ -149,15 +153,15 @@ function Editbug() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // TODO: submit form data to MySQL database
-    console.log(
-      "this is date-------------*************------------:",
-      formData.date
-    );
+    // console.log(
+    //   "this is date-------------*************------------:",
+    //   formData.date
+    // );
 
-    console.log(
-      "this is res----date-------------*************------------:",
-      formData.resdate
-    );
+    // console.log(
+    //   "this is res----date-------------*************------------:",
+    //   formData.resdate
+    // );
 
     if (formData.res_date == undefined) {
       formData.resdate = null;
@@ -189,7 +193,7 @@ function Editbug() {
     formDatas.append("file", file);
     try {
       const response = await axios.post(
-        "https://bughound-backend.vercel.app/api/upload",
+        "http://localhost:3000/api/upload",
         formDatas
       );
       console.log(response.data);
@@ -202,7 +206,7 @@ function Editbug() {
   const handleDownload = async (bugid) => {
     try {
       const response = await axios.get(
-        `https://bughound-backend.vercel.app/api/filesdownload/${bugid}`,
+        `http://localhost:3000/api/filesdownload/${bugid}`,
         {
           responseType: "blob",
         }
