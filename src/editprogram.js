@@ -24,12 +24,13 @@ function Editprogram() {
 
   const program_id = searchParams.get("id");
 
-  console.log("this is Edit program page ");
+  console.log("this is Edit program page with the program id :", program_id);
 
   useEffect(() => {
     axios
       .get(`https://bughound-backend.vercel.app/getoneprogram/${program_id}`)
       .then((res) => {
+        console.log("this is we got the program:", res.data);
         setprogram(res.data);
       });
   }, [program_id]);
@@ -57,7 +58,7 @@ function Editprogram() {
 
   const handleUpdateprogram = (id, name, version, rel) => {
     axios
-      .put(`https://bughound-backend.vercel.app/updateemployee/${id}`, {
+      .put(`https://bughound-backend.vercel.app/updateprogram/${id}`, {
         name,
         version,
         rel,
@@ -121,6 +122,7 @@ function Editprogram() {
                   color="primary"
                   onClick={() =>
                     handleUpdateprogram(
+                      program.id,
                       program.name,
                       program.version,
                       program.rel
