@@ -42,11 +42,7 @@ const Getprogram = () => {
               <td>{program.version}</td>
               <td>{program.rel}</td>
               <td>
-                <Link
-                  to={`https://bughound-backend.vercel.app/updateprogram?id=${program.id}`}
-                >
-                  Edit
-                </Link>
+                <Link to={`/updateprogram?id=${program.id}`}>Edit</Link>
               </td>
             </tr>
           ))}
