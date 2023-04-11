@@ -59,6 +59,7 @@ function Editprogram() {
   const handleUpdateprogram = (id, name, version, rel) => {
     axios
       .put(`https://bughound-backend.vercel.app/updateprogram/${id}`, {
+        id,
         name,
         version,
         rel,

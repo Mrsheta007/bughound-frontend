@@ -43,7 +43,7 @@ const Getprogram = () => {
               <td>{program.rel}</td>
               <td>
                 <Link
-                  to={`http://localhost:3001/updateprogram?id=${program.id}`}
+                  to={`https://bughound-backend.vercel.app/updateprogram?id=${program.id}`}
                 >
                   Edit
                 </Link>
