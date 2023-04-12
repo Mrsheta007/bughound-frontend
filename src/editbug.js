@@ -230,6 +230,7 @@ function Editbug() {
             //file upload may not work on server as the website is hosted under
             free hosting plan
           </label>
+          <br></br>
           <label for="fname">
             <b>Edit bug report</b>
           </label>
