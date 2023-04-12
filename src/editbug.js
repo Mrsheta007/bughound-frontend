@@ -226,6 +226,10 @@ function Editbug() {
     <div style={{ marginTop: "50px", marginLeft: "50px", marginRight: "50px" }}>
       <div style={{ border: "1px solid black", padding: "10px" }}>
         <form onSubmit={handleSubmit} name="fname">
+          <label>
+            //file upload may not work on server as the website is hosted under
+            free hosting plan
+          </label>
           <label for="fname">
             <b>Edit bug report</b>
           </label>
