@@ -1,10 +1,16 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 function App() {
   //console.log("this is going to be easy");
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userLevel = searchParams.get("userLevel");
+
+  const history = useHistory();
+
+  const handleLogout = () => {
+    history.push("/");
+  };
 
   return (
     <div>
@@ -25,6 +31,9 @@ function App() {
           )}
           <li>
             <a href="/searchbug">search bug</a>
+          </li>
+          <li>
+            <button onClick={handleLogout}>Logout</button>
           </li>
         </ul>
       </nav>
