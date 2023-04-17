@@ -3,6 +3,7 @@ import axios from "axios";
 
 const ExportForm = () => {
   const [tableName, setTableName] = useState("");
+  const [outputType, setOutputType] = useState("csv");
 
   const handleExport = () => {
     if (!tableName) {
@@ -10,13 +11,15 @@ const ExportForm = () => {
       return;
     }
     axios
-      .get(`https://bughound-backend.vercel.app/export/${tableName}`)
+      .get(
+        `https://bughound-backend.vercel.app/export/${tableName}?outputType=${outputType}`
+      )
       .then((res) => {
-        const blob = new Blob([res.data], { type: "text/csv" });
+        const blob = new Blob([res.data], { type: `text/${outputType}` });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = `${tableName}.csv`;
+        a.download = `${tableName}.${outputType}`;
         a.click();
         window.URL.revokeObjectURL(url);
       })
@@ -34,6 +37,13 @@ const ExportForm = () => {
         <option value="areas">Areas</option>
         <option value="bug">Bug</option>
         <option value="employees">Employees</option>
+      </select>
+      <select
+        value={outputType}
+        onChange={(e) => setOutputType(e.target.value)}
+      >
+        <option value="csv">CSV</option>
+        <option value="txt">ASCII</option>
       </select>
       <button onClick={handleExport}>Export</button>
     </div>
