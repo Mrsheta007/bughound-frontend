@@ -1,15 +1,14 @@
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
   //console.log("this is going to be easy");
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userLevel = searchParams.get("userLevel");
 
-  const history = useHistory();
-
   const handleLogout = () => {
-    history.push("/");
+    navigate("/");
   };
 
   return (
