@@ -13,6 +13,7 @@ function AddBug() {
   const [severities, setSeverities] = useState(["fatal", "severe", "minor"]);
 
   const [status, setStatus] = useState(["open", "close"]);
+  const [res, setResponse] = useState([]);
   const [resolution, setResolution] = useState(["Fixed", "working", "pending"]);
   const [resolution_version, setResolutionversion] = useState([
     "1.1.1",
@@ -81,6 +82,8 @@ function AddBug() {
       .post("https://bughound-backend.vercel.app/addbug", formValues)
       .then((res) => {
         console.log("This data is Added:", formValues);
+
+        setResponse("bug added sucessfully");
         // TODO: show success message to user
       })
       .catch((err) => {
@@ -373,6 +376,7 @@ function AddBug() {
           </div>
 
           <button type="submit">Submit</button>
+          <p>{res}</p>
           <button type="button" onClick={() => window.location.reload()}>
             Reset
           </button>
