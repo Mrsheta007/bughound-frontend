@@ -20,7 +20,10 @@ const AddEmployee = () => {
         SetResponse("employee added sucessfully");
       })
       .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        SetResponse("dublicate employees are not allowed");
+        console.log(error);
+      });
 
     //window.location.reload();
   };
