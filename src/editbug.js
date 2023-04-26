@@ -186,7 +186,7 @@ function Editbug() {
         // TODO: show success message to user
       })
       .catch((err) => {
-        setResponse(res.data);
+        //setResponse(res.data);
         console.error(err);
         // TODO: show error message to user
       });
