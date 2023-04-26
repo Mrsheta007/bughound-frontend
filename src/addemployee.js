@@ -5,7 +5,7 @@ const AddEmployee = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userLevel, setUserLevel] = useState("");
-
+  const [res, SetResponse] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const employeeData = { name, username, password, userLevel };
@@ -15,11 +15,14 @@ const AddEmployee = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(employeeData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        response.json();
+        SetResponse("employee added sucessfully");
+      })
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
 
-    //window.location.reload();
+    window.location.reload();
   };
 
   return (
@@ -70,6 +73,7 @@ const AddEmployee = () => {
         </label>
         <br />
         <button type="submit">Submit</button>
+        <p>{res}</p>
       </form>
     </div>
   );
