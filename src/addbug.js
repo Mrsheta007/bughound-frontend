@@ -93,7 +93,7 @@ function AddBug() {
     setFormValues({
       reportTypes: "",
     });
-    //window.location.reload();
+    window.location.reload();
   };
 
   return (
