@@ -214,6 +214,7 @@ function AddBug() {
               name="area"
               value={formValues.area}
               onChange={handleInputChange}
+              required
               style={{ marginBottom: "10px" }}
             >
               <option value="">Select an area</option>
