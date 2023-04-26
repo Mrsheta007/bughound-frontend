@@ -182,11 +182,11 @@ function Editbug() {
       .put(`https://bughound-backend.vercel.app/editbug/${bugid}`, formData)
       .then((res) => {
         console.log(res.data);
-        setResponse(res.data);
+        setResponse("bug edited");
         // TODO: show success message to user
       })
       .catch((err) => {
-        //setResponse(res.data);
+        setResponse("erro");
         console.error(err);
         // TODO: show error message to user
       });
