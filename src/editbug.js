@@ -30,6 +30,7 @@ function Editbug() {
   const [treat_as, settreat_as] = useState(["yes", "no"]);
   const [severity, setSeverities] = useState(["fatal", "severe", "minor"]);
   const [res_date, set_resdate] = useState([]);
+  const [res, setResponse] = useState([]);
 
   useEffect(() => {
     //Retrieve the list of programs from the database
@@ -181,9 +182,11 @@ function Editbug() {
       .put(`https://bughound-backend.vercel.app/editbug/${bugid}`, formData)
       .then((res) => {
         console.log(res.data);
+        setResponse(res.data);
         // TODO: show success message to user
       })
       .catch((err) => {
+        setResponse(res.data);
         console.error(err);
         // TODO: show error message to user
       });
@@ -508,6 +511,7 @@ function Editbug() {
           <br />
 
           <button type="submit">Edit</button>
+          <p>{res}</p>
           <button type="button" onClick={() => window.location.reload()}>
             Reset
           </button>
